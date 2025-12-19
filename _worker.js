@@ -307,7 +307,7 @@ export default {
 
                     if (!ua.includes('subconverter')) 订阅内容 = 批量替换域名(订阅内容.replace(/00000000-0000-4000-8000-000000000000/g, config_JSON.UUID), config_JSON.HOSTS)
 
-                    if (!ua.includes('mozilla') && 订阅类型 === 'mixed') 订阅内容 = btoa(订阅内容);
+					if (url.searchParams.has('base64') || !ua.includes('mozilla')) 订阅内容 = btoa(订阅内容);
 
                     if (订阅类型 === 'singbox') {
                         订阅内容 = JSON.stringify(JSON.parse(订阅内容), null, 2);
@@ -1543,4 +1543,5 @@ async function html1101(host, 访问IP) {
 </body>
 </html>`;
 }
+
 
